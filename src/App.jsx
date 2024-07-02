@@ -4,6 +4,8 @@ import React, { useRef } from "react";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage";
 import Projects from "./components/Projects";
+import Stacks from "./components/Stacks";
+import Contact from "./components/Contact";
 
 function App() {
   const curRef1 = useRef(null);
@@ -35,10 +37,10 @@ function App() {
         <Projects />
       </div>
       <div ref={curRef3}>
-        <MainPage />
+        <Stacks />
       </div>
       <div ref={curRef4}>
-        <Projects />
+        <Contact />
       </div>
     </div>
   );
