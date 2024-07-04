@@ -1,4 +1,5 @@
 import React from "react";
+import projects from "../styles/projects.css";
 
 const Projects = () => {
   const projectDetails = [
@@ -46,19 +47,21 @@ const Projects = () => {
     <header className="App-header">
       <h2>Projects</h2>
       {/* Carousel로 구성, 옆으로 넘길 수 있도록 */}
-      {projectDetails.map((projects) => (
-        <div className="contents" key={projects.projectId}>
-          <h3>{projects.title}</h3>
-          <div>
-            <div>
-              {projects.date} / {projects.persons}인
+      <div className="contents">
+        {projectDetails.map((projects) => (
+          <div className="content" key={projects.projectId}>
+            <div className="content-title">{projects.title}</div>
+            <div className="content-detail">
+              <div>
+                기간 : {projects.date} / 인원 : {projects.persons}인
+              </div>
+              <div>개요 : {projects.info}</div>
+              <div>담당 역할 : {projects.part}</div>
+              <div>제작 : {projects.making}</div>
             </div>
           </div>
-          <div>{projects.info}</div>
-          <div>{projects.part}</div>
-          <div>{projects.making}</div>
-        </div>
-      ))}
+        ))}
+      </div>
     </header>
   );
 };
