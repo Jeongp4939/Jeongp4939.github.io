@@ -1,5 +1,5 @@
-import React from "react";
-import projects from "../styles/projects.css";
+import React, { useRef, useState } from "react";
+import "../styles/projects.css";
 
 const Projects = () => {
   const projectDetails = [
@@ -43,24 +43,59 @@ const Projects = () => {
     },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? projectDetails.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === projectDetails.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <header className="App-header">
       <h2>Projects</h2>
       {/* Carousel로 구성, 옆으로 넘길 수 있도록 */}
-      <div className="contents">
-        {projectDetails.map((projects) => (
-          <div className="content" key={projects.projectId}>
-            <div className="content-title">{projects.title}</div>
-            <div className="content-detail">
-              <div>
-                기간 : {projects.date} / 인원 : {projects.persons}인
+      <div className="carousel-container">
+        <button
+          className="slide-arrow"
+          id="slide-arrow-prev"
+          onClick={handlePrev}
+        >
+          &#8249;
+        </button>
+        <div className="content-container">
+          {projectDetails.map((project, idx) => (
+            <div
+              className={`content ${
+                idx === currentIndex ? "active" : "inactive"
+              }`}
+              key={project.projectId}
+            >
+              <div className="content-title">{project.title}</div>
+              <div className="content-detail">
+                <div>
+                  기간 : {project.date} / 인원 : {project.persons}인
+                </div>
+                <div>개요 : {project.info}</div>
+                <div>담당 역할 : {project.part}</div>
+                <div>제작 : {project.making}</div>
               </div>
-              <div>개요 : {projects.info}</div>
-              <div>담당 역할 : {projects.part}</div>
-              <div>제작 : {projects.making}</div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <button
+          className="slide-arrow"
+          id="slide-arrow-next"
+          onClick={handleNext}
+        >
+          &#8250;
+        </button>
       </div>
     </header>
   );
