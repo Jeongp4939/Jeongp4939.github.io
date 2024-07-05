@@ -4,6 +4,7 @@ import "../styles/navbar.css";
 const Navbar = ({ sccurRef1, sccurRef2, sccurRef3, sccurRef4 }) => {
   return (
     <nav className="navbar">
+      <img className="logo" src="#" alt="logo" />
       <ul className="navmenu">
         <li>
           <a onClick={sccurRef1}>소개</a>

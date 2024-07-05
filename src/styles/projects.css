@@ -33,18 +33,7 @@
   flex: 1 0 100%;
 }
 
-.content-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 20px;
-  padding: 20px;
-}
 
-.content-detail {
-  justify-content: start;
-  font-size: 1.4rem;
-  font-weight: 400;
-}
 
 .slide-arrow {
   position: absolute;
@@ -80,7 +69,6 @@
   border-radius: 2rem 0 0 2rem;
 } */
 
-
 .carousel-container {
   display: flex;
   align-items: center;
@@ -90,18 +78,41 @@
   display: flex;
   overflow: hidden;
   width: 100%; /* 원하는 너비로 설정하세요 */
-  height: calc(100dv-2rem);
+  height: calc(100vh-2rem);
+  border: 2px solid white;
+  border-radius: 2rem;
+  padding: 20px;
   justify-content: center;
 }
 
 .content {
-  min-width: 100%;
+  min-width: 800px;
+  min-height: 60vh;
   transition: transform 0.5s ease-in-out;
+  margin: 10px;
+  padding: 10px;
+}
+
+.content-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.content-images {
+  display: flex;
+}
+
+.content-images img {
+  width: 300px; 
+  margin: 5px;
 }
 
 .content-detail {
   display: flex;
   margin: 20px;
+  font-size: 1.4rem;
+  font-weight: 400;
   flex-direction: column;
   justify-self: flex-end;
   align-items: flex-start;

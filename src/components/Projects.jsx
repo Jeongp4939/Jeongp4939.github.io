@@ -11,6 +11,7 @@ const Projects = () => {
       info: "음성을 이용한 기믹이 추가된 점프 플랫포머 게임",
       part: "Client, Map Design",
       making: "Player 및 Objects 동작 구현, 맵 디자인 및 제작",
+      img: [1, 2, 3],
     },
     {
       projectId: 2,
@@ -21,6 +22,7 @@ const Projects = () => {
       part: "FE, DATA",
       making:
         "UI 제작 및 디자인, 크롤링을 통한 부품 데이터 수집, 부품 데이터 전처리, API 연동",
+      img: [1, 2, 3],
     },
     {
       projectId: 3,
@@ -30,6 +32,7 @@ const Projects = () => {
       info: "온라인에서 관리 및 공유가 가능한 멀티타이머 디바이스",
       part: "FE",
       making: "WEB, Device UI 제작 및 디자인, 타이머 제작, API 연동",
+      img: [1, 2, 3],
     },
     {
       projectId: 4,
@@ -40,6 +43,7 @@ const Projects = () => {
       part: "이미지 내 폰트 인식, 학습이미지 생성",
       making:
         "OpenCV를 이용한 이미지 내 문자영역 추출, Pilow라이브러리를 활용해 학습데이터 생성",
+      img: [],
     },
   ];
 
@@ -78,6 +82,15 @@ const Projects = () => {
               key={project.projectId}
             >
               <div className="content-title">{project.title}</div>
+              <div className="content-images">
+                {project.img.map((src, imgIdx) => (
+                  <img
+                    key={imgIdx}
+                    src={`images/${project.projectId}-${src}.png`}
+                    alt={`project-${project.projectId}-${imgIdx}`}
+                  />
+                ))}
+              </div>
               <div className="content-detail">
                 <div>
                   기간 : {project.date} / 인원 : {project.persons}인

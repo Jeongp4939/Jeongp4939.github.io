@@ -4,10 +4,19 @@
   background-color: #fff;
   left: 0;
   top: 0;
+
+  justify-content: space-between;
+}
+
+.logo {
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  border: 1px solid black;
 }
 
 .navmenu {
-  display: flex;  
+  display: flex;
 }
 
 .navmenu li {
