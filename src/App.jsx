@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage";
@@ -21,6 +21,54 @@ function App() {
     curRef3.current.scrollIntoView({ behavior: "smooth" });
   const sccurRef4 = () =>
     curRef4.current.scrollIntoView({ behavior: "smooth" });
+
+  // 마우스 휠이 작동함에 따라 페이지 단위로 스크롤 되도록 하기 위해 useEffect를 이용해 상태 감지
+  useEffect(() => {
+    const sections = [curRef1, curRef2, curRef3, curRef4];
+    let curSectionIndex = 0;
+    let isThrottling = false;
+
+    const handleScroll = (event) => {
+      if (isThrottling) return;
+      isThrottling = true;
+
+      const deltaY = event.deltaY;
+      if (deltaY > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+
+      // 너무 민감하게 반응하여 딜레이를 주기위한 setTimeout 사용
+      setTimeout(() => {
+        isThrottling = false;
+      }, 500);
+    };
+
+
+    const handleNext = () => {
+      if (curSectionIndex < sections.length - 1) {
+        curSectionIndex += 1;
+        sections[curSectionIndex].current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    };
+
+    const handlePrev = () => {
+      if (curSectionIndex > 0) {
+        curSectionIndex -= 1;
+        sections[curSectionIndex].current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    };
+
+    window.addEventListener("wheel", handleScroll);
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="App">

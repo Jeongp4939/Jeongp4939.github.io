@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "../styles/projects.css";
 
 const Projects = () => {
@@ -43,7 +43,7 @@ const Projects = () => {
       part: "이미지 내 폰트 인식, 학습이미지 생성",
       making:
         "OpenCV를 이용한 이미지 내 문자영역 추출, Pilow라이브러리를 활용해 학습데이터 생성",
-      img: [1,2,3],
+      img: [1, 2, 3],
     },
   ];
 
@@ -66,14 +66,14 @@ const Projects = () => {
       <h2>Projects</h2>
       {/* Carousel로 구성, 옆으로 넘길 수 있도록 */}
       <div className="carousel-container">
-        <button
-          className="slide-arrow"
-          id="slide-arrow-prev"
-          onClick={handlePrev}
-        >
-          &#8249;
-        </button>
         <div className="content-container">
+          <button
+            className="slide-arrow"
+            id="slide-arrow-prev"
+            onClick={handlePrev}
+          >
+            &#8249;
+          </button>
           {projectDetails.map((project, idx) => (
             <div
               className={`content ${
@@ -101,14 +101,14 @@ const Projects = () => {
               </div>
             </div>
           ))}
+          <button
+            className="slide-arrow"
+            id="slide-arrow-next"
+            onClick={handleNext}
+          >
+            &#8250;
+          </button>
         </div>
-        <button
-          className="slide-arrow"
-          id="slide-arrow-next"
-          onClick={handleNext}
-        >
-          &#8250;
-        </button>
       </div>
     </header>
   );
