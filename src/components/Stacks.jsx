@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/stacks.css";
 
 const Stacks = () => {
   const skills = [

@@ -6,7 +6,7 @@
 .content-container {
   display: flex;
   overflow: hidden;
-  width: 100%; /* 원하는 너비로 설정하세요 */
+  width: 80vw;
   height: calc(70vh-2rem);
   border: 2px solid white;
   border-radius: 2rem;
@@ -16,7 +16,7 @@
 }
 
 .content {
-  min-width: 800px;
+  min-width: 80%;
   min-height: 60vh;
   transition: transform 0.5s ease-in-out;
   margin: 10px;
@@ -34,7 +34,7 @@
 }
 
 .content-images img {
-  width: 300px; 
+  width: 33%; 
   max-height: 200px;
   margin: 5px;
 }
