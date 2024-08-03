@@ -4,7 +4,7 @@ import "../styles/navbar.css";
 const Navbar = ({ sccurRef1, sccurRef2, sccurRef3, sccurRef4 }) => {
   return (
     <nav className="navbar">
-      <div className="logo">PORTPOLIO</div>
+      <div className="logo" onClick={sccurRef1}>PORTPOLIO</div>
       <ul className="navmenu">
         <li onClick={sccurRef1}>소개</li>
         <li onClick={sccurRef2}>프로젝트</li>
